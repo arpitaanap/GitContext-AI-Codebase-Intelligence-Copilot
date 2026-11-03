@@ -1,0 +1,6 @@
+{
+  "name": "GitContext AI — Codebase Intelligence Copilot",
+  "description": "Intelligent project discovery and codebase question-answering copilot with hybrid RAG, repository profiling, citations, and evaluation.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

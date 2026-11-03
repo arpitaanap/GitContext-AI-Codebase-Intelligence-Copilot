@@ -1,0 +1,26 @@
+services:
+  gitcontext-ai:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: gitcontext-ai-service
+    ports:
+      - "3000:3000"
+    environment:
+      - NODE_ENV=production
+      - PORT=3000
+      - GEMINI_API_KEY=${GEMINI_API_KEY:-}
+    volumes:
+      - app_data:/app/data
+      - app_artifacts:/app/data/artifacts
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:3000/health"]
+      interval: 30s
+      timeout: 5s
+      retries: 3
+      start_period: 15s
+
+volumes:
+  app_data:
+  app_artifacts:
